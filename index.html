@@ -97,7 +97,7 @@
 </nav>
 
 
-<div class="container" style="margin-top: 100px;">
+<div class="container" style="margin-top: 40px;">
 
   <!-- Tamanhos -->
   <h4 class="section-title" id="tamanhos">🍷 Escolha o Tamanho</h4>
@@ -136,9 +136,9 @@
     </div>
   </div>
   <div class="card-option mb-3">
-    <img src="maracuja.jpeg" alt="Maracujpa">
+    <img src="maracuja.jpeg" alt="Maracujá">
     <div class="card-body">
-      <input type="checkbox" value="Ninho" class="form-check-input mb-2 creme">
+      <input type="checkbox" value="Maracujá" class="form-check-input mb-2 creme">
       <h5>Maracujá</h5>
     </div>
   </div>
@@ -149,13 +149,13 @@
       <h5>Morango</h5>
     </div>
   </div>
-    <div class="card-option mb-3">
+  <div class="card-option mb-3">
     <img src="oreo.jpeg" alt="Oreo">
     <div class="card-body">
       <input type="checkbox" value="Oreo" class="form-check-input mb-2 creme">
-      <h5>oreo</h5>
+      <h5>Oreo</h5>
     </div>
-   </div>
+  </div>
 
   <!-- Complementos -->
   <h4 class="section-title" id="complementos">🍓 Escolha os Complementos</h4>
@@ -187,21 +187,21 @@
       <h5>Paçoca</h5>
     </div>
   </div>
-    <div class="card-option mb-3">
+  <div class="card-option mb-3">
     <img src="kiwi.jpeg" alt="Kiwi">
     <div class="card-body">
-      <input type="checkbox" value="Paçoca" class="form-check-input mb-2 complemento">
+      <input type="checkbox" value="Kiwi" class="form-check-input mb-2 complemento">
       <h5>Kiwi</h5>
     </div>
   </div>
-    <div class="card-option mb-3">
+  <div class="card-option mb-3">
     <img src="banana.webp" alt="Banana">
     <div class="card-body">
       <input type="checkbox" value="Banana" class="form-check-input mb-2 complemento">
       <h5>Banana</h5>
     </div>
   </div>
-    <div class="card-option mb-3">
+  <div class="card-option mb-3">
     <img src="mm.jpeg" alt="M & M">
     <div class="card-body">
       <input type="checkbox" value="M & M" class="form-check-input mb-2 complemento">
@@ -213,7 +213,7 @@
   <h4 class="section-title" id="pedido">📍 Finalizar Pedido</h4>
   <div class="mb-3">
     <label for="localizacao" class="form-label">Informe sua localização e referências:</label>
-    <textarea class="form-control" id="localizacao" rows="3" placeholder="Ex: Rua da discordia, Beco do Facada, nº 100, perto de uma boca de fumo"></textarea>
+    <textarea class="form-control" id="localizacao" rows="3" placeholder="Ex: Rua da Alegria, nº 100, perto da praça"></textarea>
   </div>
   <button id="btnPedido" class="btn btn-order w-100" disabled>🚀 Enviar Pedido</button>
 </div>
@@ -243,38 +243,30 @@
     complementos.forEach(c => c.disabled = false);
 
     if (tamanhoSelecionado === "300ml") {
-      // máximo 1 cremes
-      const selecionados = document.querySelectorAll('.creme:checked');
-      if (selecionados.length >= 1) {
+      if (document.querySelectorAll('.creme:checked').length >= 1) {
         cremes.forEach(c => { if (!c.checked) c.disabled = true; });
       }
-      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
-      if (complementos_selecionados.length >= 3) {
+      if (document.querySelectorAll('.complemento:checked').length >= 3) {
         complementos.forEach(c => { if (!c.checked) c.disabled = true; });
       }
     } else if (tamanhoSelecionado === "500ml") {
-      // máximo 1 cremes
-      const selecionados = document.querySelectorAll('.creme:checked');
-      if (selecionados.length >= 1) {
+      if (document.querySelectorAll('.creme:checked').length >= 1) {
         cremes.forEach(c => { if (!c.checked) c.disabled = true; });
       }
-      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
-      if (complementos_selecionados.length >= 4) {
+      if (document.querySelectorAll('.complemento:checked').length >= 4) {
         complementos.forEach(c => { if (!c.checked) c.disabled = true; });
       }
     } else if (tamanhoSelecionado === "1L") {
-      const selecionados = document.querySelectorAll('.creme:checked');
-      if (selecionados.length >= 2) {
+      if (document.querySelectorAll('.creme:checked').length >= 2) {
         cremes.forEach(c => { if (!c.checked) c.disabled = true; });
       }
-      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
-      if (complementos_selecionados.length >= 6) {
+      if (document.querySelectorAll('.complemento:checked').length >= 6) {
         complementos.forEach(c => { if (!c.checked) c.disabled = true; });
       }
     }
   }
 
-  // Eventos para monitorar alterações
+  // Eventos
   document.querySelectorAll('input[name="tamanho"]').forEach(r => r.addEventListener('change', aplicarLimites));
   document.querySelectorAll('.creme, .complemento').forEach(c => c.addEventListener('change', aplicarLimites));
 
@@ -294,9 +286,12 @@
 
     alert(mensagem);
 
-    //Parte de comentário: como enviar pedido para email ou whattsapp. 
-    //const url = `https://wa.me/5599999999999?text=${encodeURIComponent(mensagem)}`;
-    //window.open(url, "_blank");
+    // limpar seleções após envio
+    document.querySelectorAll('input[name="tamanho"]').forEach(r => r.checked = false);
+    document.querySelectorAll('.creme, .complemento').forEach(c => c.checked = false);
+    localizacao.value = "";
+    btnPedido.disabled = true;
+    aplicarLimites();
   });
 </script>
 
