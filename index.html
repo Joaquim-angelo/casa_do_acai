@@ -10,20 +10,21 @@
       background: linear-gradient(135deg, #0a0a0f, #1a002b);
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 60px;
     }
     .navbar {
       background: linear-gradient(90deg, #6a0dad, #9b30ff);
       box-shadow: 0 0 15px #9b30ff;
       color: white;
     }
+    .navbar-brand img { height: 100px; }
+    
     .navbar .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-      transition: all 0.3s;
-    }   
-    .navbar-brand img {
-      height: 50px;
+      color: #ffffff !important;      /* Força a cor branca */
+      font-weight: bold;
+      transition: color 0.3s;
     }
+
     .section-title {
       margin: 40px 0 20px;
       color: #9b30ff;
@@ -42,187 +43,269 @@
       transition: all 0.3s;
       box-shadow: 0 0 10px rgba(155, 48, 255, 0.3);
     }
-    .card-option:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 20px #9b30ff;
-    }
     .card-option img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-right: 15px;
-      border: 2px solid #6a0dad;
-    }
-    .card-body h5 {
-      color: #fff;
-      margin-bottom: 5px;
-    }
-    .price {
-      color: #00ffff;
-      font-weight: bold;
+      width: 120px; height: 120px; object-fit: cover;
+      border-radius: 10px; margin-right: 15px;
+      border: 2px solid #6a0dad; cursor: pointer;
     }
     .btn-order {
       background: linear-gradient(90deg, #6a0dad, #9b30ff);
-      color: white;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      padding: 10px;
-      margin-top: 10px;
-      transition: all 0.3s;
+      color: white; font-size: 1.1rem;
+      border: none; border-radius: 8px;
+      padding: 10px; margin-top: 10px;
     }
-    .btn-order:disabled {
-      background: gray;
-    }
-    .btn-order:hover:not(:disabled) {
-      box-shadow: 0 0 15px #9b30ff;
-      transform: translateY(-2px);
-    }
+    .btn-order:disabled { background: gray; }
     textarea {
-      background: #0f0017;
-      color: #fff;
+      background: #0f0017; color: #fff;
       border: 1px solid #6a0dad;
     }
-    textarea::placeholder {
-      color: #bbb;
+
+    footer{
+      margin-top: 10px;
+      background-color: black;
+      text-align: center;
+      height: 50px;
+      padding-top: 15px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
       <img src="logo.png" alt="Logo">
       <span class="ms-2">Casa do Açaí</span>
     </a>
-
-    <!-- Botão responsivo (hambúrguer) -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#tamanhos">🍧 Tamanhos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#cremes">🍫 Cremes</a></li>
-        <li class="nav-item"><a class="nav-link" href="#complementos">🍌 Complementos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#pedido">📍 Pedido</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#tamanhos">Tamanhos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#cremes">Cremes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#complementos">Complementos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pedido">Pedido</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-  <!-- Conteúdo -->
-  <div class="container" style="margin-top: 100px;">
 
-    <!-- Tamanhos -->
-    <h4 class="section-title" id="tamanhos">🍧 Escolha o Tamanho</h4>
-    <div class="card-option mb-3">
-      <img src="tamanho300.jpg" alt="300ml">
-      <div class="card-body">
-        <input type="radio" name="tamanho" value="300ml" class="form-check-input mb-2">
-        <h5>300ml</h5>
-        <p class="price">R$ 12,00</p>
-      </div>
-    </div>
-    <div class="card-option mb-3">
-      <img src="tamanho500.jpg" alt="500ml">
-      <div class="card-body">
-        <input type="radio" name="tamanho" value="500ml" class="form-check-input mb-2">
-        <h5>500ml</h5>
-        <p class="price">R$ 16,00</p>
-      </div>
-    </div>
-    <div class="card-option mb-3">
-      <img src="tamanho1L.jpg" alt="1 Litro">
-      <div class="card-body">
-        <input type="radio" name="tamanho" value="1L" class="form-check-input mb-2">
-        <h5>1 Litro</h5>
-        <p class="price">R$ 28,00</p>
-      </div>
-    </div>
+<div class="container" style="margin-top: 100px;">
 
-    <!-- Cremes -->
-    <h4 class="section-title" id="cremes">🍫 Escolha os Cremes</h4>
-    <div class="card-option mb-3">
-      <img src="creme-leite.jpg" alt="Leite Condensado">
-      <div class="card-body">
-        <input type="checkbox" value="Leite Condensado" class="form-check-input mb-2">
-        <h5>Leite Condensado</h5>
-      </div>
+  <!-- Tamanhos -->
+  <h4 class="section-title" id="tamanhos">🍷 Escolha o Tamanho</h4>
+  <div class="card-option mb-3">
+    <img src="300.jpg" alt="300ml">
+    <div class="card-body">
+      <input type="radio" name="tamanho" value="300ml" class="form-check-input mb-2">
+      <h5>300ml (1 Creme + 3 Complementos )</h5>
+      <p class="price">R$ 12,00</p>
     </div>
-    <div class="card-option mb-3">
-      <img src="creme-ninho.jpg" alt="Ninho">
-      <div class="card-body">
-        <input type="checkbox" value="Ninho" class="form-check-input mb-2">
-        <h5>Ninho</h5>
-      </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="500.jpg" alt="500ml">
+    <div class="card-body">
+      <input type="radio" name="tamanho" value="500ml" class="form-check-input mb-2">
+      <h5>500ml (1 Creme + 4 Complementos )</h5>
+      <p class="price">R$ 16,00</p>
     </div>
-    <div class="card-option mb-3">
-      <img src="creme-chocolate.jpg" alt="Chocolate">
-      <div class="card-body">
-        <input type="checkbox" value="Chocolate" class="form-check-input mb-2">
-        <h5>Chocolate</h5>
-      </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="litro.jpg" alt="1 Litro">
+    <div class="card-body">
+      <input type="radio" name="tamanho" value="1L" class="form-check-input mb-2">
+      <h5>1 Litro (2 Cremes + 6 Complementos)</h5>
+      <p class="price">R$ 28,00</p>
     </div>
-
-    <!-- Complementos -->
-    <h4 class="section-title" id="complementos">🍌 Escolha os Complementos</h4>
-    <div class="card-option mb-3">
-      <img src="comp-granola.jpg" alt="Granola">
-      <div class="card-body">
-        <input type="checkbox" value="Granola" class="form-check-input mb-2">
-        <h5>Granola</h5>
-      </div>
-    </div>
-    <div class="card-option mb-3">
-      <img src="comp-banana.jpg" alt="Banana">
-      <div class="card-body">
-        <input type="checkbox" value="Banana" class="form-check-input mb-2">
-        <h5>Banana</h5>
-      </div>
-    </div>
-    <div class="card-option mb-3">
-      <img src="comp-morango.jpg" alt="Morango">
-      <div class="card-body">
-        <input type="checkbox" value="Morango" class="form-check-input mb-2">
-        <h5>Morango</h5>
-      </div>
-    </div>
-    <div class="card-option mb-3">
-      <img src="comp-pacoca.jpg" alt="Paçoca">
-      <div class="card-body">
-        <input type="checkbox" value="Paçoca" class="form-check-input mb-2">
-        <h5>Paçoca</h5>
-      </div>
-    </div>
-
-    <!-- Pedido -->
-    <h4 class="section-title" id="pedido">📍 Finalizar Pedido</h4>
-    <div class="mb-3">
-      <label for="localizacao" class="form-label">Informe sua localização e referências:</label>
-      <textarea class="form-control" id="localizacao" rows="3" placeholder="Ex: Rua das Flores, nº 100, perto da praça central"></textarea>
-    </div>
-    <button id="btnPedido" class="btn btn-order w-100" disabled>🚀 Enviar Pedido</button>
   </div>
 
-  <script>
-    const btnPedido = document.getElementById('btnPedido');
-    const localizacao = document.getElementById('localizacao');
+  <!-- Cremes -->
+  <h4 class="section-title" id="cremes">🍦 Escolha os Cremes</h4>
+  <div class="card-option mb-3">
+    <img src="ninho.jpeg" alt="Leite ninho">
+    <div class="card-body">
+      <input type="checkbox" value="Leite ninho" class="form-check-input mb-2 creme">
+      <h5>Leite Ninho</h5>
+    </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="maracuja.jpeg" alt="Maracujpa">
+    <div class="card-body">
+      <input type="checkbox" value="Ninho" class="form-check-input mb-2 creme">
+      <h5>Maracujá</h5>
+    </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="morango.jpeg" alt="Morango">
+    <div class="card-body">
+      <input type="checkbox" value="Morango" class="form-check-input mb-2 creme">
+      <h5>Morango</h5>
+    </div>
+  </div>
+    <div class="card-option mb-3">
+    <img src="oreo.jpeg" alt="Oreo">
+    <div class="card-body">
+      <input type="checkbox" value="Oreo" class="form-check-input mb-2 creme">
+      <h5>oreo</h5>
+    </div>
+   </div>
 
-    localizacao.addEventListener('input', () => {
-      btnPedido.disabled = localizacao.value.trim() === "";
-    });
+  <!-- Complementos -->
+  <h4 class="section-title" id="complementos">🍓 Escolha os Complementos</h4>
+  <div class="card-option mb-3">
+    <img src="jujuba.jpg" alt="Jujuba">
+    <div class="card-body">
+      <input type="checkbox" value="Jujuba" class="form-check-input mb-2 complemento">
+      <h5>Jujuba</h5>
+    </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="leite.png" alt="Leite">
+    <div class="card-body">
+      <input type="checkbox" value="Leite" class="form-check-input mb-2 complemento">
+      <h5>Leite em Pó</h5>
+    </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="morango_comp.jpg" alt="Morango">
+    <div class="card-body">
+      <input type="checkbox" value="Morango" class="form-check-input mb-2 complemento">
+      <h5>Morango</h5>
+    </div>
+  </div>
+  <div class="card-option mb-3">
+    <img src="paçoca.jpg" alt="Paçoca">
+    <div class="card-body">
+      <input type="checkbox" value="Paçoca" class="form-check-input mb-2 complemento">
+      <h5>Paçoca</h5>
+    </div>
+  </div>
+    <div class="card-option mb-3">
+    <img src="kiwi.jpeg" alt="Kiwi">
+    <div class="card-body">
+      <input type="checkbox" value="Paçoca" class="form-check-input mb-2 complemento">
+      <h5>Kiwi</h5>
+    </div>
+  </div>
+    <div class="card-option mb-3">
+    <img src="banana.webp" alt="Banana">
+    <div class="card-body">
+      <input type="checkbox" value="Banana" class="form-check-input mb-2 complemento">
+      <h5>Banana</h5>
+    </div>
+  </div>
+    <div class="card-option mb-3">
+    <img src="mm.jpeg" alt="M & M">
+    <div class="card-body">
+      <input type="checkbox" value="M & M" class="form-check-input mb-2 complemento">
+      <h5>M & M</h5>
+    </div>
+  </div>
 
-    btnPedido.addEventListener('click', () => {
-      alert("Pedido enviado com sucesso! 🚀 Obrigado por comprar na Casa do Açaí!");
-    });
-  </script>
+  <!-- Pedido -->
+  <h4 class="section-title" id="pedido">📍 Finalizar Pedido</h4>
+  <div class="mb-3">
+    <label for="localizacao" class="form-label">Informe sua localização e referências:</label>
+    <textarea class="form-control" id="localizacao" rows="3" placeholder="Ex: Rua da discordia, Beco do Facada, nº 100, perto de uma boca de fumo"></textarea>
+  </div>
+  <button id="btnPedido" class="btn btn-order w-100" disabled>🚀 Enviar Pedido</button>
+</div>
+
+<footer>
+  @ Joaquim Angelo (2025)
+</footer>
+
+<script>
+  const btnPedido = document.getElementById('btnPedido');
+  const localizacao = document.getElementById('localizacao');
+
+  // habilita botão se endereço for preenchido
+  localizacao.addEventListener('input', () => {
+    btnPedido.disabled = localizacao.value.trim() === "";
+  });
+
+  // controla limites de seleção
+  function aplicarLimites() {
+    const tamanhoSelecionado = document.querySelector('input[name="tamanho"]:checked')?.value;
+
+    const cremes = document.querySelectorAll('.creme');
+    const complementos = document.querySelectorAll('.complemento');
+
+    // libera todos
+    cremes.forEach(c => c.disabled = false);
+    complementos.forEach(c => c.disabled = false);
+
+    if (tamanhoSelecionado === "300ml") {
+      // máximo 1 cremes
+      const selecionados = document.querySelectorAll('.creme:checked');
+      if (selecionados.length >= 1) {
+        cremes.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
+      if (complementos_selecionados.length >= 3) {
+        complementos.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+    } else if (tamanhoSelecionado === "500ml") {
+      // máximo 1 cremes
+      const selecionados = document.querySelectorAll('.creme:checked');
+      if (selecionados.length >= 1) {
+        cremes.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
+      if (complementos_selecionados.length >= 4) {
+        complementos.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+    } else if (tamanhoSelecionado === "1L") {
+      const selecionados = document.querySelectorAll('.creme:checked');
+      if (selecionados.length >= 2) {
+        cremes.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+      const complementos_selecionados = document.querySelectorAll('.complemento:checked');
+      if (complementos_selecionados.length >= 6) {
+        complementos.forEach(c => { if (!c.checked) c.disabled = true; });
+      }
+    }
+  }
+
+  // Eventos para monitorar alterações
+  document.querySelectorAll('input[name="tamanho"]').forEach(r => r.addEventListener('change', aplicarLimites));
+  document.querySelectorAll('.creme, .complemento').forEach(c => c.addEventListener('change', aplicarLimites));
+
+  // clique do pedido
+  btnPedido.addEventListener('click', () => {
+    const tamanhoSelecionado = document.querySelector('input[name="tamanho"]:checked');
+    if (!tamanhoSelecionado) {
+      alert("⚠️ Você precisa escolher pelo menos um tamanho para realizar o pedido.");
+      return;
+    }
+
+    const cremes = [...document.querySelectorAll('.creme:checked')].map(c => c.value).join(", ") || "Nenhum";
+    const complementos = [...document.querySelectorAll('.complemento:checked')].map(c => c.value).join(", ") || "Nenhum";
+    const endereco = localizacao.value;
+
+    const mensagem = `📦 Pedido Casa do Açaí\n\n🍷 Tamanho: ${tamanhoSelecionado.value}\n🍦 Cremes: ${cremes}\n🍓 Complementos: ${complementos}\n📍 Endereço: ${endereco}`;
+
+    alert(mensagem);
+
+    //Parte de comentário: como enviar pedido para email ou whattsapp. 
+    //const url = `https://wa.me/5599999999999?text=${encodeURIComponent(mensagem)}`;
+    //window.open(url, "_blank");
+  });
+</script>
 
 </body>
 </html>
+
+
 
